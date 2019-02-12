@@ -286,8 +286,8 @@ public class Banquetes extends javax.swing.JFrame {
             return;
         }
         try{
-            int choice = JOptionPane.showConfirmDialog(null, "¿Estás seguro de realizar el pedido con los datos ingresados?","\nRealizar pedido",JOptionPane.YES_NO_OPTION);
             setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            int choice = JOptionPane.showConfirmDialog(null, "¿Estás seguro de realizar el pedido con los datos ingresados?","\nRealizar pedido",JOptionPane.YES_NO_OPTION);
             if(choice == 1){
                 setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                 return;
@@ -308,10 +308,11 @@ public class Banquetes extends javax.swing.JFrame {
             ps.setString(11, np.getCorreo());
             int exe = ps.executeUpdate();
             if(exe > 0 ){
+                setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                 JOptionPane.showMessageDialog(null, "Pedido registrado");
-                setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                 limpiarCajas();
             }else{
+                setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                 JOptionPane.showMessageDialog(null, "Error al guardar los datos en la BD");
             }
         }catch(Exception ex){
@@ -320,9 +321,11 @@ public class Banquetes extends javax.swing.JFrame {
             setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             ex.printStackTrace();
         }
+        jReport jr = new jReport();
         JasperReport reporte = null;
         String path = "pnotes/Pedido_v3.jasper";
         try {
+            setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             /*Variable que sirve para recivir la consulta MySQL*/
             ResultSet id = null;
             String consulta = "select MAX(id_Cliente) from cliente;";
@@ -335,17 +338,9 @@ public class Banquetes extends javax.swing.JFrame {
             System.out.println("id de consulta"+id+"\nExecute querty"+id.toString()+"\nnext "+id.getString(1));
             String id_ = id.getString("MAX(id_Cliente)");
             parametro.put("id_Cliente",Integer.parseInt(id_));
-            /*Se manda a llamar el reporte */
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-            /*Esta variable sirve para el llenado del reporte
-             Donde (Reporte, null, la conexcio con BD)
-            */
-            JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro,con);
-            /*Se crea la vista del reporte*/ 
-            JasperViewer view = new JasperViewer(jprint,false);
-            /*Funcion para que se cierre el reporte*/
-            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            view.setVisible(true);  
+            /*Mandamos a llamar la clase del reporte*/
+            jr.getReporte(id.getString(1));
+            setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         } catch (SQLException ex) {
             setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             Logger.getLogger(Banquetes.class.getName()).log(Level.SEVERE, null, ex);

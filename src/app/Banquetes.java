@@ -9,19 +9,13 @@ package app;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.InputStream;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import javax.swing.JTextField;
 import java.sql.*;
-import java.math.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -29,12 +23,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author Ricardo
@@ -322,8 +310,6 @@ public class Banquetes extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jReport jr = new jReport();
-        JasperReport reporte = null;
-        String path = "pnotes/Pedido_v3.jasper";
         try {
             setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             /*Variable que sirve para recivir la consulta MySQL*/

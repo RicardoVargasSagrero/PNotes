@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author Ricardo
  */
 public class coneccion {
-    private static final String url = "jdbc:mysql://localhost:3306/notes?autoReconnect=true&useSSL=false";
+    private static final String url = "jdbc:mysql://localhost:3306/notes?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String user = "root";
     private static String password = "1234";
     

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cbb94777-1e0a-436a-88e4-6734778ca7a5">
 	<property name="ireport.zoom" value="1.610510000000015"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="692"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="id_Cliente" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -75,10 +75,6 @@ WHERE
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="6" y="15" width="190" height="70" uuid="ea97eece-2dd2-43be-8cfb-ee9b928c33e7"/>
-				<imageExpression><![CDATA["C:\\Users\\Ricardo\\Desktop\\PNotes\\PNotes\\src\\ImagenesSistema\\IMA03.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="159" y="8" width="266" height="68" forecolor="#0000CC" uuid="9a2a3113-f6b7-48d9-ace3-cc18d23cd526"/>
 				<textElement textAlignment="Center">

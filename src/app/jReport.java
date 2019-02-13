@@ -26,7 +26,7 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class jReport {
     private JasperReport reporte = null;
-    private static final String path = "src\\pnotes\\Pedido_v3.jasper";
+    private static final String path = "pnotes\\Pedido_v3.jasper";
     private ResultSet id = null;
     private String consulta = null;
     private Statement s; 
@@ -74,5 +74,6 @@ public class jReport {
         /*Funcion para que se cierre el reporte*/
         view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         view.setVisible(true);
+        System.out.println(reporte.toString());
     }
 }
